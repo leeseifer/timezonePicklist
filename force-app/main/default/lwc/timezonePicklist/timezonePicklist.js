@@ -14,9 +14,9 @@ export default class TimezonePicklist extends LightningElement {
             .then(()=>{
                 this.currentTZ = moment.tz.guess();
                 this.timezoneOptions = moment.tz.names()
-                .reduce((memo,tz) => {
-                    memo.push({key:tz.name,value:tz.name,label:`(GMT${timezone}) ${tz.name}`,name:tz,offset:moment.tz(tz).utcOffset()});
-                    return memo;
+                .reduce((tzlist,tz) => {
+                    tzlist.push({key:tz.name,value:tz.name,label:`(GMT${timezone}) ${tz.name}`,name:tz,offset:moment.tz(tz).utcOffset()});
+                    return tzlist;
                 },[]).sort((a,b)=>{
                     return a.offset-b.offset;
                 });
