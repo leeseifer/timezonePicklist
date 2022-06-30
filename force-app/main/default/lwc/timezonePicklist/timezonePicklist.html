@@ -1,0 +1,8 @@
+<template>
+    <input id="input" name="input" value={currentTZ} placeholder={placeholder} type="text"  />
+    <datalist id="valueList">
+        <template for:each={timezoneOptions} for:item='item'>
+            <option key={item.key} value={item.value}>{item.label}</option>
+        </template>
+    </datalist>
+</template>
